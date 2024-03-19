@@ -1,0 +1,20 @@
+###############################################################################
+# Bazel now uses Bzlmod by default to manage external dependencies.
+# Please consider migrating your external dependencies from WORKSPACE to MODULE.bazel.
+#
+# For more details, please check https://github.com/bazelbuild/bazel/issues/18958
+###############################################################################
+
+bazel_dep(name = "pw_toolchain", version = "0.1")
+archive_override(
+    module_name = "pw_toolchain",
+    strip_prefix = "pigweed-385a1e4a5585ba228084eac28d21f719d3f38ffd/pw_toolchain_bazel",
+    urls = "https://github.com/google/pigweed/archive/385a1e4a5585ba228084eac28d21f719d3f38ffd.zip",
+)
+
+bazel_dep(name = "pico-sdk")
+git_override(
+  module_name = "pico-sdk",
+  remote = "https://github.com/armandomontanez/pico-sdk.git",
+  commit = "07890a2af5d76a68a28d0c286d8c4a6611b904f0",
+)

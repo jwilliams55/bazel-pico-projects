@@ -1,5 +1,9 @@
 
 cc_binary(
-  name="hello-world",
+  name="hello-world.elf",
   srcs=["hello-world.cc"],
+  deps=[
+    "@pico-sdk//src/common/pico_stdlib:pico_stdlib",
+    "@pico-sdk//src/rp2_common/pico_standard_link:pico_standard_link",
+  ],
 )
