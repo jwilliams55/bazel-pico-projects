@@ -1,8 +1,9 @@
 cc_binary(
-  name="hello-world.elf",
-  srcs=["hello-world.cc"],
+  name="i2c_scanner.elf",
+  srcs=["i2c_scanner.cc"],
   deps=[
     "@pico-sdk//src/common/pico_stdlib:pico_stdlib",
+    "@pico-sdk//src/rp2_common/hardware_i2c:hardware_i2c",
     "@pico-sdk//src/rp2_common/pico_standard_link:pico_standard_link",
   ],
 )
