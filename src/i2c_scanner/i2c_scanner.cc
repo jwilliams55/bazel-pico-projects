@@ -10,8 +10,9 @@ uint8_t scan_i2c_bus(i2c_inst_t* i2c, uint8_t start, uint8_t end, std::array<uin
   uint8_t qty_devices = 0;
   for (uint8_t address = start; address < end; address++) {
     absolute_time_t delay = delayed_by_ms(get_absolute_time(), 500);
-    int8_t status = i2c_read_blocking_until(i2c, address, NULL, 0, false, delay);
-    if (status >= 0) {
+    uint8_t tmp = 0;
+    int8_t status = i2c_read_blocking_until(i2c, address, &tmp, 1, false, delay);
+    if (status > 0) {
       printf("Found device at address 0x%02x\n", address);
       devices_found[qty_devices] = address;
       qty_devices++;
