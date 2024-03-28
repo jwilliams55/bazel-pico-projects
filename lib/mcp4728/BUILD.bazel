@@ -1,0 +1,8 @@
+cc_library(
+  name="mcp4728",
+  srcs=["mcp4728.cc", "mcp4728.h"],
+  deps=[
+    "@pico-sdk//src/rp2_common/hardware_i2c:hardware_i2c",
+    "@pigweed//pw_status",
+  ],
+)
