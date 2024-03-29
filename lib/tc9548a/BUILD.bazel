@@ -1,0 +1,8 @@
+cc_library(
+  name="tc9548a",
+  srcs=["tc9548a.cc", "tc9548a.h"],
+  deps=[
+    "@pico-sdk//src/rp2_common/hardware_i2c:hardware_i2c",
+    "@pigweed//pw_status",
+  ],
+)
